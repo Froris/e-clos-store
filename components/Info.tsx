@@ -2,19 +2,20 @@
 
 import Button from '@/components/Button';
 import { ShoppingCart } from 'lucide-react';
-import { Product } from '../types';
+import { Product } from '@/types';
 import { Currency } from '@/components/Currency';
+import { useCart } from '@/hooks/useCartStorage';
 
 type Props = {
   data: Product;
 };
 
 export const Info: React.FC<Props> = ({ data }) => {
-  // const cart = useCart();
+  const cart = useCart();
 
-  // const onAddToCart = () => {
-  //   cart.addItem(data);
-  // }
+  const onAddToCart = () => {
+    cart.addItem(data);
+  };
 
   return (
     <section>
@@ -39,7 +40,7 @@ export const Info: React.FC<Props> = ({ data }) => {
         </div>
       </div>
       <div className='mt-10 flex items-center gap-x-3'>
-        <Button onClick={() => {}} className='flex items-center gap-x-2'>
+        <Button onClick={onAddToCart} className='flex items-center gap-x-2'>
           Add To Cart
           <ShoppingCart size={20} />
         </Button>
