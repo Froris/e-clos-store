@@ -3,7 +3,7 @@ import qs from 'query-string';
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
-interface Query {
+export interface Query {
   categoryId?: string;
   colorId?: string;
   sizeId?: string;

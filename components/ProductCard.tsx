@@ -3,13 +3,12 @@
 import { MouseEventHandler } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Expand, ShoppingCart } from 'lucide-react';
-
-import { IconButton } from '@/components/IconButton';
-import { Currency } from '@/components/Currency';
-import usePreviewModal from '@/hooks/usePreviewModal';
-import { useCart } from '@/hooks/useCartStorage';
+import { Currency } from '../components/Currency';
+import usePreviewModal from '../hooks/usePreviewModal';
+import { useCart } from '../hooks/useCartStorage';
 import { Product } from '@/types';
+import { IconButton } from '../components/IconButton';
+import { Expand, ShoppingCart } from 'lucide-react';
 
 type Props = {
   data: Product;
@@ -44,7 +43,7 @@ export const ProductCard: React.FC<Props> = ({ data }) => {
       <section className='aspect-square rounded-xl bg-gray-100 relative'>
         <Image
           src={data.images?.[0]?.url}
-          alt=''
+          alt='Product photo'
           fill
           className='aspect-square object-cover rounded-md'
         />

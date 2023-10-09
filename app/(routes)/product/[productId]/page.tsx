@@ -1,8 +1,9 @@
 import { getProduct, getProducts } from '@/actions/products';
 import { Container } from '@/components/Container';
-import { ProductList } from '@/components/ProductList';
+import { ProductsList } from '@/components/ProductList';
 import { Gallery } from '@/components/Gallery';
 import { Info } from '@/components/Info';
+import { NoResults } from '@/components/NoResults';
 
 type Props = {
   params: {
@@ -32,7 +33,11 @@ const Page: React.FC<Props> = async ({ params }) => {
             </section>
           </article>
           <hr className='my-10' />
-          <ProductList title='Related Items' items={suggestedProducts} />
+          <article className='space-y-4'>
+            <h3 className='font-bold text-3xl'>Related Products</h3>
+            {suggestedProducts.length === 0 && <NoResults />}
+            <ProductsList items={suggestedProducts} />
+          </article>
         </div>
       </Container>
     </main>

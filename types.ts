@@ -1,6 +1,7 @@
 export interface Billboard {
   id: string;
   label: string;
+  cloudinaryImageId: string;
   imageUrl: string;
 }
 

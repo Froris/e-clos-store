@@ -5,7 +5,6 @@ import { Modal } from '@/components/Modal';
 import { Gallery } from '@/components/Gallery';
 import { Info } from '@/components/Info';
 
-// TODO make it HOC
 export const PreviewModalContainer = () => {
   const previewModal = usePreviewModal();
   const product = usePreviewModal((state) => state.data);
