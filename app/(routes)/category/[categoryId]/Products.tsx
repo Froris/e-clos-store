@@ -1,6 +1,6 @@
 import { getProducts } from '@/actions/products';
 import { NoResults } from '@/components/NoResults';
-import { ProductList } from '@/components/ProductList';
+import { ProductsList } from '@/components/ProductsList';
 
 type Props = {
   params: {
@@ -22,7 +22,7 @@ export const Products: React.FC<Props> = async ({ params, searchParams }) => {
   return (
     <section className='mt-6 lg:col-span-4 lg:mt-0'>
       {products.length === 0 && <NoResults />}
-      <ProductList items={products} />
+      <ProductsList items={products} />
     </section>
   );
 };

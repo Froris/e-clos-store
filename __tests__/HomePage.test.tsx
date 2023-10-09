@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Billboard } from '../components/Billboard';
 import { mockBillboard, mockProduct } from '../mocks/data';
-import { ProductList } from '../components/ProductList';
+import { ProductsList } from '@/components/ProductsList';
 
 jest.mock('next/navigation', () => ({
   useParams: jest.fn().mockReturnValue({ storeId: 'test-store-123' }),
@@ -27,8 +27,8 @@ describe('[HOME PAGE] Rendering', () => {
     expect(backgroundImageStyle).toContain(`url(example.com)`);
   });
 
-  it('Should render <ProductList /> with correct data', () => {
-    render(<ProductList items={[mockProduct]} />);
+  it('Should render <ProductsList /> with correct data', () => {
+    render(<ProductsList items={[mockProduct]} />);
 
     expect(screen.getByText('Example Product')).toBeInTheDocument();
     expect(screen.getByText('Example Category')).toBeInTheDocument();

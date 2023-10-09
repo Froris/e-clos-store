@@ -1,9 +1,10 @@
 import { getProduct, getProducts } from '@/actions/products';
 import { Container } from '@/components/Container';
-import { ProductsList } from '@/components/ProductList';
+
 import { Gallery } from '@/components/Gallery';
 import { Info } from '@/components/Info';
 import { NoResults } from '@/components/NoResults';
+import { ProductsList } from '@/components/ProductsList';
 
 type Props = {
   params: {
