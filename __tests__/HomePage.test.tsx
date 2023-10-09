@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Billboard } from '../components/Billboard';
 import { mockBillboard, mockProduct } from '../mocks/data';
-import { ProductsList } from '@/components/ProductsList';
+import { ProductsList } from '../components/ProductsList';
 
 jest.mock('next/navigation', () => ({
   useParams: jest.fn().mockReturnValue({ storeId: 'test-store-123' }),
