@@ -1,4 +1,4 @@
-import { Container } from '@/components/Container';
+import { MainContainer } from '@/components/Container';
 import { Billboard } from '@/components/Billboard';
 import { getSizes } from '@/actions/sizes';
 import { getCategory } from '@/actions/categories';
@@ -26,23 +26,15 @@ const CategoryPage: React.FC<Props> = async ({ params, searchParams }) => {
   const category = await getCategory(params.categoryId);
 
   return (
-    <main className='bg-white'>
-      <Container>
-        {category.billboard && (
-          <div className='p-4 sm:p-6 lg:p-8'>
-            <Billboard data={[category.billboard]} />
-          </div>
-        )}
-        <div className='px-4 sm:px-6 lg:px-8 py-24'>
-          <article className='lg:grid lg:grid-cols-5 lg:gap-x-10'>
-            <Filters colors={colors} sizes={sizes} />
-            <Suspense fallback={<ProductsLoader />}>
-              <Products params={params} searchParams={searchParams} />
-            </Suspense>
-          </article>
-        </div>
-      </Container>
-    </main>
+    <MainContainer>
+      {category.billboard && <Billboard data={[category.billboard]} />}
+      <article className='lg:grid lg:grid-cols-5 lg:gap-x-10'>
+        <Filters colors={colors} sizes={sizes} />
+        <Suspense fallback={<ProductsLoader />}>
+          <Products params={params} searchParams={searchParams} />
+        </Suspense>
+      </article>
+    </MainContainer>
   );
 };
 
